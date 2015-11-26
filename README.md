@@ -15,6 +15,6 @@
   - [Hash](hash.md)
   - [Array](array.md)
   - [Enumerable](enum.md)
-2. [x] [Coś do przetestowania na początek]
+2. [x] [Coś do przetestowania na początek](https://github.com/BoskiOski/Tar/tree/master/zadanie2)
 3. [ ] Program/Biblioteka/Aplikacja WWW
 
