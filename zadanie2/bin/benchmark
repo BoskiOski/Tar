@@ -1,0 +1,37 @@
+#! /usr/bin/env ruby
+
+require 'benchmark'
+require '../lib/nwd_nww'
+require '../lib/round'
+require '../lib/fib'
+
+array_l100 = (1..100).map { rand }
+array_l1000 = (1..1000).map { rand }
+
+multiply = 100
+
+puts "\n"
+puts 'Pomiar czasowy algorytmu NWD, wykonany 100 razy'
+Benchmark.bmbm do |x|
+  x.report("Dla liczb 5,10") { multiply.times do; nwd(5,10); end }
+  x.report("Dla liczb 1583, 586438") { multiply.times do; nwd(1583, 586438); end }
+end
+
+puts "\n"
+puts 'Pomiar czasowy algorytmu NWW, wykonany 100 razy'
+Benchmark.bmbm do |x|
+  x.report("Dla liczb 6,12") { multiply.times do; nww(6,12); end }
+  x.report("Dla liczb 666,10000") { multiply.times do; nww(666,10000); end}
+end
+puts "\n"
+puts 'Pomiar czasowy obliczanie liczby Fibonacciego, wykonany 100 razy'
+Benchmark.bmbm do |x|
+  x.report("Dla liczby 7") { multiply.times do; fibonacci(7); end }
+  x.report("Dla liczby 20") { multiply.times do; fibonacci(20); end }
+end
+puts "\n"
+puts 'Pomiar czasowy obliczania średniej, wykonany 100 razy'
+Benchmark.bmbm do |x|
+  x.report("Dla listy 100 elementów") { multiply.times do; srednia(array_l100,100); end }
+  x.report("Dla listy 1000 elementów") { multiply.times do; srednia(array_l1000,1000); end }
+end
